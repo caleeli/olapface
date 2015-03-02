@@ -1,4 +1,10 @@
 <?php
+require_once("DB.php");
+require_once("Cube.php");
+require_once("Dimension.php");
+require_once("Measure.php");
+require_once("VirtualCube.php");
+
 class LoadExcel {
   public static function updateSchemaXML($schemaPath, $dom, $virtualCube){
     $vs=$dom->getElementsByTagName('VirtualCube');
@@ -68,7 +74,7 @@ class LoadExcel {
   }
   public static function doTask($file){
 
-    set_include_path(get_include_path() . PATH_SEPARATOR . '/home/david/php-5.6.5/www/phpexcel2/Classes');
+    set_include_path(get_include_path() . PATH_SEPARATOR . 'phpexcel2/Classes');
     
     define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
     date_default_timezone_set('Europe/London');
